@@ -13,7 +13,9 @@ class SoundEngine {
 
     if (typeof window !== "undefined") {
       try {
-        this.preloadedClap = new Audio("/sounds/clapper.mp3");
+        const base = import.meta.env.BASE_URL || "/";
+        const soundPath = base.endsWith("/") ? `${base}sounds/clapper.mp3` : `${base}/sounds/clapper.mp3`;
+        this.preloadedClap = new Audio(soundPath);
         this.preloadedClap.preload = "auto";
       } catch {
         // Ignore
@@ -40,7 +42,9 @@ class SoundEngine {
   playClap() {
     try {
       if (typeof window !== "undefined") {
-        const audio = new Audio("/sounds/clapper.mp3");
+        const base = import.meta.env.BASE_URL || "/";
+        const soundPath = base.endsWith("/") ? `${base}sounds/clapper.mp3` : `${base}/sounds/clapper.mp3`;
+        const audio = new Audio(soundPath);
         audio.currentTime = 0;
         audio.volume = 0.42; // Softened level: crisp & balanced, not heavy
         audio.play().catch(() => {

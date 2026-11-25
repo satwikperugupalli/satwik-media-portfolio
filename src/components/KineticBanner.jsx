@@ -4,6 +4,8 @@ import { Play } from "lucide-react";
 
 export default function KineticBanner({ onOpenFeaturedReel }) {
   const videoRef = useRef(null);
+  const base = import.meta.env.BASE_URL || "/";
+  const bannerVideoSrc = base.endsWith("/") ? `${base}videos/d27-sponsor-promo.mp4` : `${base}/videos/d27-sponsor-promo.mp4`;
 
   useEffect(() => {
     if (videoRef.current) {
@@ -49,7 +51,7 @@ export default function KineticBanner({ onOpenFeaturedReel }) {
         {/* Full-bleed background frame looping Satwik's real video silently */}
         <video
           ref={videoRef}
-          src="/videos/d27-sponsor-promo.mp4"
+          src={bannerVideoSrc}
           autoPlay
           muted
           loop

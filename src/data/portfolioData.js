@@ -6,6 +6,10 @@
  * and high-end commercial post-production standards.
  */
 
+const BASE = (import.meta.env.BASE_URL || "/").endsWith("/") 
+  ? (import.meta.env.BASE_URL || "/") 
+  : `${import.meta.env.BASE_URL}/`;
+
 export const PORTFOLIO_CONFIG = {
   // -----------------------------------------------------------------------
   // EDITOR / ARTIST IDENTITY & CONVERSION VALUE PROPOSITION
@@ -98,7 +102,7 @@ export const PORTFOLIO_CONFIG = {
       aspectRatioName: "16:9 Full HD",
       isFlagship: true,
 
-      videoUrl: "/videos/d27-sponsor-promo.mp4",
+      videoUrl: `${BASE}videos/d27-sponsor-promo.mp4`,
       posterUrl: "",
 
       tags: ["Sponsor Pitch", "Match Cuts", "Animated Typography", "Studio SFX", "DaVinci ACEScc Grade"],
@@ -131,7 +135,7 @@ export const PORTFOLIO_CONFIG = {
       aspectRatioName: "16:9 Full HD",
       isFlagship: true,
       
-      videoUrl: "/videos/paracosmos-promo.mp4",
+      videoUrl: `${BASE}videos/paracosmos-promo.mp4`,
       posterUrl: "",
       
       tags: ["Fast Cuts", "3-Second Hook", "Trendy Transitions", "Esports Rhythm", "DaVinci Sound Design"],
@@ -164,7 +168,7 @@ export const PORTFOLIO_CONFIG = {
       aspectRatioName: "16:9 Full HD",
       isFlagship: true,
 
-      videoUrl: "/videos/paracosmos-highlights.mp4",
+      videoUrl: `${BASE}videos/paracosmos-highlights.mp4`,
       posterUrl: "",
 
       tags: ["Rapid Cuts", "Instant Hook", "Punchy SFX", "Beat Sync", "Event Momentum"],
@@ -197,7 +201,7 @@ export const PORTFOLIO_CONFIG = {
       aspectRatioName: "16:9 Full HD",
       isFlagship: false,
 
-      videoUrl: "/videos/amr-sponsor-promo.mp4",
+      videoUrl: `${BASE}videos/amr-sponsor-promo.mp4`,
       posterUrl: "",
 
       tags: ["3D Camera Track", "3D Motion Text", "Logo Animations", "Velocity Cuts", "Brand Identity"],
@@ -230,7 +234,7 @@ export const PORTFOLIO_CONFIG = {
       aspectRatioName: "16:9 Full HD",
       isFlagship: false,
 
-      videoUrl: "/videos/one-year-dastaan.mp4",
+      videoUrl: `${BASE}videos/one-year-dastaan.mp4`,
       posterUrl: "",
 
       tags: ["Aesthetic Cut", "Feel-Good Musical Score", "Melodic Cuts", "Emotional Pacing", "Curated Shots"],
