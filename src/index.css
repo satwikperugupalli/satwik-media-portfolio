@@ -1,0 +1,112 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --bg-cinema-black: #050508;
+    --bg-cinema-surface: #090b12;
+    --bg-cinema-card: #0d101a;
+    --border-cinema: rgba(255, 255, 255, 0.08);
+    --border-cinema-bright: rgba(255, 255, 255, 0.18);
+    
+    /* Media Work & Conversion Color Palette */
+    --accent-ember: #ff6b00;
+    --accent-ember-glow: rgba(255, 107, 0, 0.4);
+    --accent-amber: #ffa726;
+    --accent-cyan: #00f0ff;
+    --accent-red: #ff3b30;
+    
+    --text-primary: #f8fafc;
+    --text-secondary: #94a3b8;
+    --text-muted: #64748b;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    background-color: var(--bg-cinema-black);
+    color: var(--text-primary);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    color-scheme: dark;
+  }
+
+  body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    background: #050508;
+    min-height: 100vh;
+    selection-background-color: #ff6b00;
+    selection-color: #ffffff;
+  }
+
+  /* Custom Cinema Scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #050508;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #1f2433;
+    border-radius: 3px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #ff6b00;
+  }
+}
+
+/* -------------------------------------------------------------
+ * CINEMA UTILITIES & TIME-CODE TYPOGRAPHY
+ * ------------------------------------------------------------- */
+.font-mono-timecode {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  font-feature-settings: "tnum" 1, "zero" 1;
+  letter-spacing: -0.02em;
+}
+
+/* Subtle Film Grain Overlay */
+.film-grain {
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.035'/%3E%3C/svg%3E");
+}
+
+/* Optical Glow Effects */
+.cinema-glow-ember {
+  box-shadow: 0 0 35px -5px rgba(255, 107, 0, 0.4);
+}
+.cinema-glow-cyan {
+  box-shadow: 0 0 35px -5px rgba(0, 240, 255, 0.35);
+}
+
+/* Marquee scrolling */
+@keyframes marquee {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 34s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+/* Pulse REC dot */
+@keyframes rec-pulse {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+    box-shadow: 0 0 14px #ff3b30;
+  }
+  50% {
+    opacity: 0.3;
+    transform: scale(0.9);
+    box-shadow: 0 0 2px #ff3b30;
+  }
+}
+
+.animate-rec-dot {
+  animation: rec-pulse 1.4s ease-in-out infinite;
+}
